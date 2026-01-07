@@ -1,12 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "../generated/prisma/client"
 }
 
 datasource db {
@@ -14,9 +8,11 @@ datasource db {
 }
 
 model Product {
-  id          String   @id @default(cuid())
+  id          Int      @id @default(autoincrement())
   name        String
   description String?
   price       Float
+  category    String
+  stock       Int      @default(1)
   createdAt   DateTime @default(now())
 }

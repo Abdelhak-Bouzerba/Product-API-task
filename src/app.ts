@@ -1,4 +1,5 @@
 import express from 'express';
+import productRouter from './routes/product.js';
 
 
 const app = express();
@@ -9,6 +10,7 @@ app.use(express.json());
 
 
 //routes
+app.use('/api', productRouter);
 
 
 export default app;
